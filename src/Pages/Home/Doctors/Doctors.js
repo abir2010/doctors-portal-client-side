@@ -5,7 +5,7 @@ import Doctor from "../Doctor/Doctor";
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("https://safe-caverns-59595.herokuapp.com/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
@@ -14,12 +14,9 @@ const Doctors = () => {
       <h2>Our Doctors : {doctors.length}</h2>
       <Container>
         <Grid container spacing={2}>
-            {
-                doctors.map(doctor=><Doctor
-                    key={doctor._id}
-                    doctor={doctor}
-                ></Doctor>)
-            }
+          {doctors.map((doctor) => (
+            <Doctor key={doctor._id} doctor={doctor}></Doctor>
+          ))}
         </Grid>
       </Container>
     </div>

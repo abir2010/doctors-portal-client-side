@@ -12,7 +12,9 @@ const Payment = () => {
   const { appointmentId } = useParams();
   const [appointment, setAppointment] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/appointments/${appointmentId}`)
+    fetch(
+      `https://safe-caverns-59595.herokuapp.com/appointments/${appointmentId}`
+    )
       .then((res) => res.json())
       .then((data) => setAppointment(data));
   }, [appointmentId]);
@@ -22,11 +24,11 @@ const Payment = () => {
         Please pay for : {appointment.pName} for {appointment.serviceName}
       </h1>
       <h2>Pay : $ {appointment.price}</h2>
-      {appointment?.price && <Elements stripe={stripePromise}>
-        <CheckoutForm 
-            appointment={appointment}
-        />
-      </Elements>}
+      {appointment?.price && (
+        <Elements stripe={stripePromise}>
+          <CheckoutForm appointment={appointment} />
+        </Elements>
+      )}
     </div>
   );
 };

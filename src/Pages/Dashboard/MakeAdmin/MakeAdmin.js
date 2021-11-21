@@ -8,7 +8,7 @@ const MakeAdmin = () => {
   const [success, setSuccess] = useState(false);
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://safe-caverns-59595.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,

@@ -45,7 +45,7 @@ const BookingModal = ({
     };
 
     // console.log(appointment)
-    fetch("http://localhost:5000/appointments", {
+    fetch("https://safe-caverns-59595.herokuapp.com/appointments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
